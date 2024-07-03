@@ -2,6 +2,7 @@ import json
 import os
 import requests
 import sys
+import time
 
 if len(sys.argv) == 1:
     print("no system arguments")
@@ -31,6 +32,7 @@ def get_recent_issue():
 
 def write_swagger_json(issue_body):
     json_data = json.loads(issue_body)
+    json_data["info"]["description"] = "last updated : " + time.strftime('%Y-%m-%d %H:%M:%S')
 
     if os.path.isfile("../swagger.json"):
             os.remove("../swagger.json")
