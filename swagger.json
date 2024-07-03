@@ -1,23 +1,27 @@
 {
-  "openapi" : "3.0.1",
-  "info" : {
-    "title" : "Grida Core API",
-    "description" : "Post Service API description",
-    "version" : "1.0.0-SNAPSHOT"
-  },
-  "servers" : [ {
-    "url" : "localhost:8080",
-    "description" : "local server"
-  }, {
-    "url" : "stag.grida.today",
-    "description" : "staging server"
-  }, {
-    "url" : "grida.today",
-    "description" : "production server"
-  } ],
-  "tags" : [ ],
-  "paths" : { },
-  "components" : {
-    "schemas" : { }
-  }
+	"openapi": "3.0.1",
+	"info": {
+		"title": "Grida Core API",
+		"description": "Post Service API description",
+		"version": "1.0.0-SNAPSHOT"
+	},
+	"servers": [
+		{
+			"url": "localhost:8080",
+			"description": "local server"
+		},
+		{
+			"url": "stag.grida.today",
+			"description": "staging server"
+		},
+		{
+			"url": "grida.today",
+			"description": "production server"
+		}
+	],
+	"tags": [],
+	"paths": {},
+	"components": {
+		"schemas": {}
+	}
 }
