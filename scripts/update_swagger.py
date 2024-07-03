@@ -34,10 +34,10 @@ def write_swagger_json(issue_body):
     json_data = json.loads(issue_body)
     json_data["info"]["description"] = "last updated : " + time.strftime('%Y-%m-%d %H:%M:%S')
 
-    if os.path.isfile("../swagger.json"):
-            os.remove("../swagger.json")
+    if os.path.isfile("./swagger.json"):
+        os.remove("./swagger.json")
 
-    with open("../swagger.json", "w", encoding="utf-8") as swagger:
+    with open("./swagger.json", "w", encoding="utf-8") as swagger:
         json.dump(json_data, swagger, ensure_ascii=False, indent="\t")
 
 
