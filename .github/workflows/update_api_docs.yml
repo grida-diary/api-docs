@@ -22,6 +22,6 @@ jobs:
         run: |
           git config --global user.email "wwan13@naver.com"
           git config --global user.name "wwan13"
-          git add swagger.json
+          git add .
           git commit -m "docs : update api docs"
           git push origin main
