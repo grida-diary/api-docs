@@ -33,6 +33,7 @@ def get_recent_issue():
 def write_swagger_json(issue_body):
     json_data = json.loads(issue_body)
     json_data["info"]["description"] = "last updated : " + time.strftime('%Y-%m-%d %H:%M:%S')
+    print(json_data)
 
     if os.path.isfile("../swagger.json"):
             os.remove("../swagger.json")
