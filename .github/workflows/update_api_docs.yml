@@ -4,6 +4,8 @@ on:
   issues:
     types: [ opened ]
 
+permissions: write-all
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
