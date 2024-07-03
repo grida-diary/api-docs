@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python 3.10
+      - name: Set up and Run script
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
@@ -18,10 +18,10 @@ jobs:
       - run: pip install requests
       - run: python3 ./scripts/update_swagger.py ${{ secrets.GH_TOKEN }}
 
-      - name: Commit README.md
+      - name: Commit to repository
         run: |
           git config --global user.email "wwan13@naver.com"
           git config --global user.name "wwan13"
-          git add README.md
+          git add swagger.json
           git commit -m "docs : update api docs"
           git push origin main
