@@ -31,14 +31,19 @@ def get_recent_issue():
 
 
 def write_swagger_json(issue_body):
-    json_data = json.loads(issue_body)
-    json_data["info"]["description"] = "last updated : " + time.strftime('%Y-%m-%d %H:%M:%S')
+    with open("./grida-core/core-api/build/api-spec/openapi3.json", "r") as oas:
+        meta_data = json.load(oas)
 
-    if os.path.isfile("./swagger.json"):
-        os.remove("./swagger.json")
+        json_data = json.loads(issue_body)
+        json_data["info"] = meta_data["info"]
+        json_data["info"]["description"] = "last updated : " + time.strftime('%Y-%m-%d %H:%M:%S')
+        json_data["servers"] = meta_data["servers"]
 
-    with open("./swagger.json", "w", encoding="utf-8") as swagger:
-        json.dump(json_data, swagger, ensure_ascii=False, indent="\t")
+        if os.path.isfile("./swagger.json"):
+            os.remove("./swagger.json")
+
+        with open("./swagger.json", "w", encoding="utf-8") as swagger:
+            json.dump(json_data, swagger, ensure_ascii=False, indent="\t")
 
 
 issue = get_recent_issue()

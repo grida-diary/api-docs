@@ -1,0 +1,21 @@
+{
+  "info": {
+    "title": "Grida Core API",
+    "description": "",
+    "version": "1.0.0-SNAPSHOT"
+  },
+  "servers": [
+    {
+      "url": "localhost:8080",
+      "description": "local server"
+    },
+    {
+      "url": "stag.grida.today",
+      "description": "staging server"
+    },
+    {
+      "url": "grida.today",
+      "description": "production server"
+    }
+  ]
+}
