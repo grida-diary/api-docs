@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-07-04 02:12:40",
+		"description": "last updated : 2024-07-04 07:36:53",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -20,8 +20,92 @@
 		}
 	],
 	"tags": [],
-	"paths": {},
+	"paths": {
+		"/api/v1/user": {
+			"post": {
+				"tags": [
+					"api"
+				],
+				"operationId": "signin",
+				"requestBody": {
+					"content": {
+						"application/json;charset=utf-8": {
+							"schema": {
+								"$ref": "#/components/schemas/api-v1-user1194263017"
+							},
+							"examples": {
+								"signin": {
+									"value": "{\n  \"username\" : \"username\",\n  \"password\" : \"raw password\",\n  \"passwordConfirm\" : \"raw password\",\n  \"nickname\" : \"nickname\"\n}"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "200",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/api-v1-user894633161"
+								},
+								"examples": {
+									"signin": {
+										"value": "{\n  \"status\" : \"SUCCESS\",\n  \"data\" : {\n    \"id\" : 1\n  },\n  \"timestamp\" : \"2024-07-04T07:36:35.798058681\"\n}"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
 	"components": {
-		"schemas": {}
+		"schemas": {
+			"api-v1-user1194263017": {
+				"type": "object",
+				"properties": {
+					"password": {
+						"type": "string",
+						"description": "유저 비밀번호"
+					},
+					"passwordConfirm": {
+						"type": "string",
+						"description": "비밀번호 확인"
+					},
+					"nickname": {
+						"type": "string",
+						"description": "닉네임"
+					},
+					"username": {
+						"type": "string",
+						"description": "유저 아이디"
+					}
+				}
+			},
+			"api-v1-user894633161": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "number",
+								"description": "생성된 user id"
+							}
+						}
+					},
+					"timestamp": {
+						"type": "string",
+						"description": "응답 시간"
+					},
+					"status": {
+						"type": "string",
+						"description": "응답 상태"
+					}
+				}
+			}
+		}
 	}
 }
