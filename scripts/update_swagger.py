@@ -31,8 +31,8 @@ def get_recent_issue():
 
 
 def write_swagger_json(issue_body):
-    with open("./meta-data.json", "r") as oas:
-        meta_data = json.load(oas)
+    with open("./meta-data.json", "r") as meta:
+        meta_data = json.load(meta)
 
         json_data = json.loads(issue_body)
         json_data["info"] = meta_data["info"]
