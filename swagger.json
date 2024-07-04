@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "Post Service API description",
+		"description": "last updated : 2024-07-04 02:00:39",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
