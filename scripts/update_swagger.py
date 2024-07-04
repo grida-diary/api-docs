@@ -31,7 +31,7 @@ def get_recent_issue():
 
 
 def write_swagger_json(issue_body):
-    with open("./grida-core/core-api/build/api-spec/openapi3.json", "r") as oas:
+    with open("./meta-data.json", "r") as oas:
         meta_data = json.load(oas)
 
         json_data = json.loads(issue_body)
