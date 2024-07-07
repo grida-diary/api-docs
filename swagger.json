@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-07-05 16:15:21",
+		"description": "last updated : 2024-07-07 12:41:41",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -52,7 +52,47 @@
 								},
 								"examples": {
 									"sign-in": {
-										"value": "{\n  \"status\" : \"SUCCESS\",\n  \"data\" : {\n    \"id\" : 1\n  },\n  \"timestamp\" : \"2024-07-05T16:15:05.349192398\"\n}"
+										"value": "{\n  \"status\" : \"SUCCESS\",\n  \"data\" : {\n    \"id\" : 1\n  },\n  \"timestamp\" : \"2024-07-07T12:41:24.562726381\"\n}"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/auth/login": {
+			"post": {
+				"tags": [
+					"auth"
+				],
+				"summary": "로그인 API",
+				"operationId": "login",
+				"requestBody": {
+					"content": {
+						"application/json;charset=utf-8": {
+							"schema": {
+								"$ref": "#/components/schemas/api-v1-auth-login-693625846"
+							},
+							"examples": {
+								"login": {
+									"value": "{\n  \"username\" : \"username\",\n  \"password\" : \"password\"\n}"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "200",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/api-v1-auth-login-1597222101"
+								},
+								"examples": {
+									"login": {
+										"value": "{\n  \"status\" : \"SUCCESS\",\n  \"data\" : {\n    \"accessToken\" : \"access token\",\n    \"refreshToken\" : \"refresh token\"\n  },\n  \"timestamp\" : \"2024-07-07T12:41:23.508781053\"\n}"
 									}
 								}
 							}
@@ -64,6 +104,19 @@
 	},
 	"components": {
 		"schemas": {
+			"api-v1-auth-login-693625846": {
+				"type": "object",
+				"properties": {
+					"password": {
+						"type": "string",
+						"description": "유저 비밀번호null"
+					},
+					"username": {
+						"type": "string",
+						"description": "유저 아이디null"
+					}
+				}
+			},
 			"api-v1-user1443946997": {
 				"type": "object",
 				"properties": {
@@ -73,6 +126,33 @@
 							"id": {
 								"type": "number",
 								"description": "생성된 사용자 IDnull"
+							}
+						},
+						"description": "응답 데이터null"
+					},
+					"timestamp": {
+						"type": "string",
+						"description": "응답 시간null"
+					},
+					"status": {
+						"type": "string",
+						"description": "응답 상태null"
+					}
+				}
+			},
+			"api-v1-auth-login-1597222101": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"type": "object",
+						"properties": {
+							"accessToken": {
+								"type": "string",
+								"description": "인증 토큰null"
+							},
+							"refreshToken": {
+								"type": "string",
+								"description": "재발급 토큰null"
 							}
 						},
 						"description": "응답 데이터null"
