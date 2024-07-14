@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-07-07 14:30:10",
+		"description": "last updated : 2024-07-14 11:45:49",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -36,7 +36,7 @@
 							},
 							"examples": {
 								"sign-in": {
-									"value": "{\n  \"username\" : \"username\",\n  \"password\" : \"raw password\",\n  \"passwordConfirm\" : \"raw password\",\n  \"nickname\" : \"nickname\"\n}"
+									"value": "{\"username\":\"username\",\"password\":\"raw password\",\"passwordConfirm\":\"raw password\",\"nickname\":\"nickname\"}"
 								}
 							}
 						}
@@ -52,7 +52,7 @@
 								},
 								"examples": {
 									"sign-in": {
-										"value": "{\n  \"status\" : \"SUCCESS\",\n  \"data\" : {\n    \"id\" : 1\n  },\n  \"timestamp\" : \"2024-07-07T14:29:56.887521556\"\n}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-14 20:45:33\"}"
 									}
 								}
 							}
@@ -76,7 +76,7 @@
 							},
 							"examples": {
 								"login": {
-									"value": "{\n  \"username\" : \"username\",\n  \"password\" : \"password\"\n}"
+									"value": "{\"username\":\"username\",\"password\":\"password\"}"
 								}
 							}
 						}
@@ -92,7 +92,153 @@
 								},
 								"examples": {
 									"login": {
-										"value": "{\n  \"status\" : \"SUCCESS\",\n  \"data\" : {\n    \"accessToken\" : \"access token\",\n    \"refreshToken\" : \"refresh token\"\n  },\n  \"timestamp\" : \"2024-07-07T14:29:55.804225109\"\n}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-07-14 20:45:31\"}"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/user/image": {
+			"post": {
+				"tags": [
+					"profile-image"
+				],
+				"summary": "샘플 프로필 이미지 생성 API",
+				"operationId": "generate-sample-profile-image",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "인증 토큰",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"example": "Bearer {bearer token}"
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json;charset=utf-8": {
+							"schema": {
+								"$ref": "#/components/schemas/api-v1-user-image-1621513902"
+							},
+							"examples": {
+								"generate-sample-profile-image": {
+									"value": "{\"gender\":\"MAN\",\"age\":25,\"hairStyle\":\"black parted\",\"glasses\":\"rounded\",\"bodyShape\":\"burly\"}"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "200",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/api-v1-user-image1910427796"
+								},
+								"examples": {
+									"generate-sample-profile-image": {
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-14 20:45:32\"}"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/user/image/apply/{profileImageId}": {
+			"post": {
+				"tags": [
+					"profile-image"
+				],
+				"summary": "프로필 이미지 적용 API",
+				"operationId": "apply-profile-image",
+				"parameters": [
+					{
+						"name": "profileImageId",
+						"in": "path",
+						"description": "적용하려는 프로필 이미지 id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "인증 토큰",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"example": "Bearer {bearer token}"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "200",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/api-v1-user-image-change-profileImageId1936992192"
+								},
+								"examples": {
+									"apply-profile-image": {
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-14 20:45:32\"}"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/user/image/change/{profileImageId}": {
+			"post": {
+				"tags": [
+					"profile-image"
+				],
+				"summary": "프로필 이미지 교체 API",
+				"operationId": "change-profile-image",
+				"parameters": [
+					{
+						"name": "profileImageId",
+						"in": "path",
+						"description": "교체하려는 프로필 이미지 id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "인증 토큰",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"example": "Bearer {bearer token}"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "200",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/api-v1-user-image-change-profileImageId1936992192"
+								},
+								"examples": {
+									"change-profile-image": {
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-14 20:45:32\"}"
 									}
 								}
 							}
@@ -114,6 +260,29 @@
 					"username": {
 						"type": "string",
 						"description": "유저 아이디null"
+					}
+				}
+			},
+			"api-v1-user-image-change-profileImageId1936992192": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "number",
+								"description": "적용된 유저의 idnull"
+							}
+						},
+						"description": "응답 데이터null"
+					},
+					"timestamp": {
+						"type": "string",
+						"description": "응답 시간null"
+					},
+					"status": {
+						"type": "string",
+						"description": "응답 상태null"
 					}
 				}
 			},
@@ -164,6 +333,54 @@
 					"status": {
 						"type": "string",
 						"description": "응답 상태null"
+					}
+				}
+			},
+			"api-v1-user-image1910427796": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "number",
+								"description": "생성된 프로필 이미지 IDnull"
+							}
+						},
+						"description": "응답 데이터null"
+					},
+					"timestamp": {
+						"type": "string",
+						"description": "응답 시간null"
+					},
+					"status": {
+						"type": "string",
+						"description": "응답 상태null"
+					}
+				}
+			},
+			"api-v1-user-image-1621513902": {
+				"type": "object",
+				"properties": {
+					"glasses": {
+						"type": "string",
+						"description": "안경null"
+					},
+					"hairStyle": {
+						"type": "string",
+						"description": "헤어 스타일null"
+					},
+					"gender": {
+						"type": "string",
+						"description": "성별null"
+					},
+					"age": {
+						"type": "number",
+						"description": "나이null"
+					},
+					"bodyShape": {
+						"type": "string",
+						"description": "체형null"
 					}
 				}
 			},
