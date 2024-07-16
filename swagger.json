@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-07-16 05:50:09",
+		"description": "last updated : 2024-07-16 05:59:24",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -52,7 +52,7 @@
 								},
 								"examples": {
 									"sign-in": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-14 20:45:33\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-16 14:59:10\"}"
 									}
 								}
 							}
@@ -92,7 +92,7 @@
 								},
 								"examples": {
 									"login": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-07-14 20:45:31\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-07-16 14:59:08\"}"
 									}
 								}
 							}
@@ -144,7 +144,7 @@
 								},
 								"examples": {
 									"generate-sample-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-14 20:45:32\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-16 14:59:09\"}"
 									}
 								}
 							}
@@ -187,11 +187,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-user-image-change-profileImageId1936992192"
+									"$ref": "#/components/schemas/api-v1-user-image-apply-profileImageId1936992192"
 								},
 								"examples": {
 									"apply-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-14 20:45:32\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-16 14:59:09\"}"
 									}
 								}
 							}
@@ -234,11 +234,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-user-image-change-profileImageId1936992192"
+									"$ref": "#/components/schemas/api-v1-user-image-apply-profileImageId1936992192"
 								},
 								"examples": {
 									"change-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-14 20:45:32\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-16 14:59:09\"}"
 									}
 								}
 							}
@@ -249,13 +249,6 @@
 		}
 	},
 	"components": {
-		"securitySchemes": {
-			"bearerAuth": {
-				"type": "http",
-				"scheme": "bearer",
-				"bearerFormat": "JWT"
-			}
-		},
 		"schemas": {
 			"api-v1-auth-login-693625846": {
 				"type": "object",
@@ -270,7 +263,7 @@
 					}
 				}
 			},
-			"api-v1-user-image-change-profileImageId1936992192": {
+			"api-v1-user-image-apply-profileImageId1936992192": {
 				"type": "object",
 				"properties": {
 					"data": {
@@ -411,6 +404,13 @@
 						"description": "유저 아이디null"
 					}
 				}
+			}
+		},
+		"securitySchemes": {
+			"bearerAuth": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
 			}
 		}
 	},
