@@ -249,6 +249,13 @@
 		}
 	},
 	"components": {
+		"securitySchemes": {
+			"bearerAuth": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			}
+		},
 		"schemas": {
 			"api-v1-auth-login-693625846": {
 				"type": "object",
@@ -404,13 +411,6 @@
 						"description": "유저 아이디null"
 					}
 				}
-			}
-		},
-		"securitySchemes": {
-			"bearerAuth": {
-				"type": "http",
-				"scheme": "bearer",
-				"bearerFormat": "JWT"
 			}
 		}
 	},
