@@ -39,10 +39,9 @@ def write_swagger_json(issue_body):
         json_data["info"]["description"] = "last updated : " + time.strftime('%Y-%m-%d %H:%M:%S')
         json_data["servers"] = meta_data["servers"]
 
-        if (meta["authorize"]["enable"] == True) {
+        if (meta["authorize"]["enable"] == True):
             json_data["components"]["securitySchemes"] = meta["authorize"]["securitySchemes"]
             json_data["security"] = meta["authorize"]["security"]
-        }
 
         if os.path.isfile("./swagger.json"):
             os.remove("./swagger.json")
