@@ -17,5 +17,20 @@
       "url": "grida.today",
       "description": "production server"
     }
-  ]
+  ],
+  "authorize": {
+    "enable": true,
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ]
+  }
 }
