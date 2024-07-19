@@ -6,16 +6,12 @@
   },
   "servers": [
     {
-      "url": "localhost:8080",
+      "url": "http://localhost:8080",
       "description": "local server"
     },
     {
-      "url": "stag.grida.today",
-      "description": "staging server"
-    },
-    {
-      "url": "grida.today",
-      "description": "production server"
+      "url": "https://grida.today",
+      "description": "live server"
     }
   ],
   "authorize": {
