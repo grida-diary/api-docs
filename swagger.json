@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-07-25 13:48:35",
+		"description": "last updated : 2024-07-25 14:05:50",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -48,7 +48,7 @@
 								},
 								"examples": {
 									"sign-in": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 22:48:16\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:05:31\"}"
 									}
 								}
 							}
@@ -88,7 +88,7 @@
 								},
 								"examples": {
 									"login": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-07-25 22:48:14\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-07-25 23:05:29\"}"
 									}
 								}
 							}
@@ -126,7 +126,7 @@
 								},
 								"examples": {
 									"profile-image-exists": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-07-25 13:48:16\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-07-25 22:48:16\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-07-25 14:05:30\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-07-25 23:05:30\"}"
 									}
 								}
 							}
@@ -176,7 +176,7 @@
 								},
 								"examples": {
 									"generate-sample-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 22:48:16\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:05:30\"}"
 									}
 								}
 							}
@@ -219,11 +219,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-user-image-change-profileImageId1936992192"
+									"$ref": "#/components/schemas/api-v1-user-image-apply-profileImageId1936992192"
 								},
 								"examples": {
 									"apply-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 22:48:16\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:05:30\"}"
 									}
 								}
 							}
@@ -266,11 +266,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-user-image-change-profileImageId1936992192"
+									"$ref": "#/components/schemas/api-v1-user-image-apply-profileImageId1936992192"
 								},
 								"examples": {
 									"change-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 22:48:16\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:05:30\"}"
 									}
 								}
 							}
@@ -295,7 +295,7 @@
 					}
 				}
 			},
-			"api-v1-user-image-change-profileImageId1936992192": {
+			"api-v1-user-image-apply-profileImageId1936992192": {
 				"type": "object",
 				"properties": {
 					"data": {
