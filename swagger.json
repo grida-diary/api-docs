@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-07-25 14:05:50",
+		"description": "last updated : 2024-07-25 14:12:13",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -48,7 +48,7 @@
 								},
 								"examples": {
 									"sign-in": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:05:31\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:11:55\"}"
 									}
 								}
 							}
@@ -88,7 +88,7 @@
 								},
 								"examples": {
 									"login": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-07-25 23:05:29\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-07-25 23:11:52\"}"
 									}
 								}
 							}
@@ -103,7 +103,7 @@
 					"profile-image"
 				],
 				"summary": "활성화된 프로필 이미지를 불러오는 API",
-				"operationId": "profile-image-exists",
+				"operationId": "activate-profile-image",
 				"parameters": [
 					{
 						"name": "Authorization",
@@ -125,8 +125,8 @@
 									"$ref": "#/components/schemas/api-v1-user-image1994647052"
 								},
 								"examples": {
-									"profile-image-exists": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-07-25 14:05:30\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-07-25 23:05:30\"}"
+									"activate-profile-image": {
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-07-25 14:11:54\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-07-25 23:11:54\"}"
 									}
 								}
 							}
@@ -176,7 +176,83 @@
 								},
 								"examples": {
 									"generate-sample-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:05:30\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:11:54\"}"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/user/image/exists": {
+			"get": {
+				"tags": [
+					"profile-image"
+				],
+				"summary": "활성화된 프로필 이미지가 존재하는지 확인하는 API",
+				"operationId": "profile-image-exists",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "인증 토큰",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"example": "Bearer {bearer token}"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "200",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/api-v1-user-image-exists980569991"
+								},
+								"examples": {
+									"profile-image-exists": {
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"result\":true},\"timestamp\":\"2024-07-25 23:11:53\"}"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/user/image/history": {
+			"get": {
+				"tags": [
+					"profile-image"
+				],
+				"summary": "활성화된 프로필 이미지를 불러오는 API",
+				"operationId": "profile-image-history",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "인증 토큰",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"example": "Bearer {bearer token}"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "200",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/api-v1-user-image-history-174826610"
+								},
+								"examples": {
+									"profile-image-history": {
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"count\":2,\"profileImages\":[{\"imageId\":1,\"imageUrl\":\"https://imageUrl1.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-07-25 14:11:54\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style1\",\"glasses\":\"glasses1\",\"bodyShape\":\"body shape1\"},{\"imageId\":2,\"imageUrl\":\"https://imageUrl2.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-07-25 14:11:54\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style2\",\"glasses\":\"glasses2\",\"bodyShape\":\"body shape2\"}]},\"timestamp\":\"2024-07-25 23:11:54\"}"
 									}
 								}
 							}
@@ -219,11 +295,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-user-image-apply-profileImageId1936992192"
+									"$ref": "#/components/schemas/api-v1-user-image-change-profileImageId1936992192"
 								},
 								"examples": {
 									"apply-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:05:30\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:11:54\"}"
 									}
 								}
 							}
@@ -266,11 +342,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-user-image-apply-profileImageId1936992192"
+									"$ref": "#/components/schemas/api-v1-user-image-change-profileImageId1936992192"
 								},
 								"examples": {
 									"change-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:05:30\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-07-25 23:11:54\"}"
 									}
 								}
 							}
@@ -295,7 +371,7 @@
 					}
 				}
 			},
-			"api-v1-user-image-apply-profileImageId1936992192": {
+			"api-v1-user-image-change-profileImageId1936992192": {
 				"type": "object",
 				"properties": {
 					"data": {
@@ -304,6 +380,29 @@
 							"id": {
 								"type": "number",
 								"description": "적용된 유저의 idnull"
+							}
+						},
+						"description": "응답 데이터null"
+					},
+					"timestamp": {
+						"type": "string",
+						"description": "응답 시간null"
+					},
+					"status": {
+						"type": "string",
+						"description": "응답 상태null"
+					}
+				}
+			},
+			"api-v1-user-image-exists980569991": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"type": "object",
+						"properties": {
+							"result": {
+								"type": "boolean",
+								"description": "확인 결과null"
 							}
 						},
 						"description": "응답 데이터null"
@@ -377,6 +476,73 @@
 							"id": {
 								"type": "number",
 								"description": "생성된 프로필 이미지 IDnull"
+							}
+						},
+						"description": "응답 데이터null"
+					},
+					"timestamp": {
+						"type": "string",
+						"description": "응답 시간null"
+					},
+					"status": {
+						"type": "string",
+						"description": "응답 상태null"
+					}
+				}
+			},
+			"api-v1-user-image-history-174826610": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"type": "object",
+						"properties": {
+							"profileImages": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"glasses": {
+											"type": "string",
+											"description": "안경 유무 / 모양null"
+										},
+										"hairStyle": {
+											"type": "string",
+											"description": "머리 스타일null"
+										},
+										"createdAt": {
+											"type": "string",
+											"description": "이미지 생성 시간null"
+										},
+										"imageId": {
+											"type": "number",
+											"description": "이미지 IDnull"
+										},
+										"gender": {
+											"type": "string",
+											"description": "성별null"
+										},
+										"imageUrl": {
+											"type": "string",
+											"description": "이미지 URLnull"
+										},
+										"age": {
+											"type": "number",
+											"description": "나이null"
+										},
+										"bodyShape": {
+											"type": "string",
+											"description": "체형null"
+										},
+										"status": {
+											"type": "string",
+											"description": "이미지 활성화 상태null"
+										}
+									}
+								}
+							},
+							"count": {
+								"type": "number",
+								"description": "프로필 이미지 개수null"
 							}
 						},
 						"description": "응답 데이터null"
