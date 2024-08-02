@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-08-01 10:14:57",
+		"description": "last updated : 2024-08-02 03:08:41",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -60,7 +60,7 @@
 								},
 								"examples": {
 									"append-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-01 19:14:36\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-02 12:08:24\"}"
 									}
 								}
 							}
@@ -100,7 +100,7 @@
 								},
 								"examples": {
 									"sign-in": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-01 19:14:39\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-02 12:08:26\"}"
 									}
 								}
 							}
@@ -140,7 +140,7 @@
 								},
 								"examples": {
 									"login": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-08-01 19:14:35\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-08-02 12:08:23\"}"
 									}
 								}
 							}
@@ -173,11 +173,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId-1741396817"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId1004227999"
 								},
 								"examples": {
 									"read-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"content\":\"일기 내용\",\"targetDate\":\"2024-02-22\",\"scope\":\"PUBLIC\",\"createdAt\":\"2024-08-01 10:14:36\"},\"timestamp\":\"2024-08-01 19:14:36\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"content\":\"일기 내용\",\"targetDate\":\"2024-02-22\",\"scope\":\"PUBLIC\",\"createdAt\":\"2024-08-02 03:08:24\",\"remainAttempt\":2},\"timestamp\":\"2024-08-02 12:08:24\"}"
 									}
 								}
 							}
@@ -232,11 +232,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId-scope928292131"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId928292131"
 								},
 								"examples": {
 									"modify-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-01 19:14:37\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-02 12:08:24\"}"
 									}
 								}
 							}
@@ -274,7 +274,7 @@
 								},
 								"examples": {
 									"activate-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-01 10:14:38\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-08-01 19:14:38\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-02 03:08:26\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-08-02 12:08:26\"}"
 									}
 								}
 							}
@@ -324,7 +324,7 @@
 								},
 								"examples": {
 									"generate-sample-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-01 19:14:38\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-02 12:08:25\"}"
 									}
 								}
 							}
@@ -371,7 +371,7 @@
 								},
 								"examples": {
 									"generate-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-01 19:14:37\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-02 12:08:25\"}"
 									}
 								}
 							}
@@ -428,11 +428,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId-scope928292131"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId928292131"
 								},
 								"examples": {
 									"modify-diary-scope": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-01 19:14:36\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-02 12:08:24\"}"
 									}
 								}
 							}
@@ -470,7 +470,7 @@
 								},
 								"examples": {
 									"profile-image-exists": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"result\":true},\"timestamp\":\"2024-08-01 19:14:38\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"result\":true},\"timestamp\":\"2024-08-02 12:08:25\"}"
 									}
 								}
 							}
@@ -508,7 +508,7 @@
 								},
 								"examples": {
 									"profile-image-history": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"count\":2,\"profileImages\":[{\"imageId\":1,\"imageUrl\":\"https://imageUrl1.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-01 10:14:38\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style1\",\"glasses\":\"glasses1\",\"bodyShape\":\"body shape1\"},{\"imageId\":2,\"imageUrl\":\"https://imageUrl2.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-01 10:14:38\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style2\",\"glasses\":\"glasses2\",\"bodyShape\":\"body shape2\"}]},\"timestamp\":\"2024-08-01 19:14:38\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"count\":2,\"profileImages\":[{\"imageId\":1,\"imageUrl\":\"https://imageUrl1.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-02 03:08:25\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style1\",\"glasses\":\"glasses1\",\"bodyShape\":\"body shape1\"},{\"imageId\":2,\"imageUrl\":\"https://imageUrl2.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-02 03:08:25\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style2\",\"glasses\":\"glasses2\",\"bodyShape\":\"body shape2\"}]},\"timestamp\":\"2024-08-02 12:08:25\"}"
 									}
 								}
 							}
@@ -564,7 +564,7 @@
 								},
 								"examples": {
 									"apply-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-01 19:14:37\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-02 12:08:25\"}"
 									}
 								}
 							}
@@ -611,7 +611,7 @@
 								},
 								"examples": {
 									"apply-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-01 19:14:38\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-02 12:08:26\"}"
 									}
 								}
 							}
@@ -658,7 +658,7 @@
 								},
 								"examples": {
 									"change-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-01 19:14:38\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-02 12:08:26\"}"
 									}
 								}
 							}
@@ -716,6 +716,45 @@
 					}
 				}
 			},
+			"api-v1-diary-diaryId1004227999": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"type": "object",
+						"properties": {
+							"createdAt": {
+								"type": "string",
+								"description": "생성 시간"
+							},
+							"targetDate": {
+								"type": "string",
+								"description": "대상 날짜"
+							},
+							"scope": {
+								"type": "string",
+								"description": "일기 공개 범위"
+							},
+							"remainAttempt": {
+								"type": "number",
+								"description": "일기 이미지 재생성 가능 횟수"
+							},
+							"content": {
+								"type": "string",
+								"description": "일기 내용"
+							}
+						},
+						"description": "응답 데이터"
+					},
+					"timestamp": {
+						"type": "string",
+						"description": "응답 시간"
+					},
+					"status": {
+						"type": "string",
+						"description": "응답 상태"
+					}
+				}
+			},
 			"api-v1-diary-2105416988": {
 				"type": "object",
 				"properties": {
@@ -736,6 +775,27 @@
 					"status": {
 						"type": "string",
 						"description": "응답 상태"
+					}
+				}
+			},
+			"api-v1-user-1378917591": {
+				"type": "object",
+				"properties": {
+					"password": {
+						"type": "string",
+						"description": "유저 비밀번호"
+					},
+					"passwordConfirm": {
+						"type": "string",
+						"description": "비밀번호 확인"
+					},
+					"nickname": {
+						"type": "string",
+						"description": "유저 닉네임"
+					},
+					"username": {
+						"type": "string",
+						"description": "유저 아이디"
 					}
 				}
 			},
@@ -764,27 +824,6 @@
 					}
 				}
 			},
-			"api-v1-user-1378917591": {
-				"type": "object",
-				"properties": {
-					"password": {
-						"type": "string",
-						"description": "유저 비밀번호"
-					},
-					"passwordConfirm": {
-						"type": "string",
-						"description": "비밀번호 확인"
-					},
-					"nickname": {
-						"type": "string",
-						"description": "유저 닉네임"
-					},
-					"username": {
-						"type": "string",
-						"description": "유저 아이디"
-					}
-				}
-			},
 			"api-v1-diary-diaryId-image816278464": {
 				"type": "object",
 				"properties": {
@@ -808,19 +847,6 @@
 					}
 				}
 			},
-			"api-v1-diary-diaryId-949572338": {
-				"type": "object",
-				"properties": {
-					"scope": {
-						"type": "string",
-						"description": "일기 공개 범위"
-					},
-					"content": {
-						"type": "string",
-						"description": "수정할 일기 콘텐츠"
-					}
-				}
-			},
 			"api-v1-auth-login-1089546234": {
 				"type": "object",
 				"properties": {
@@ -831,6 +857,19 @@
 					"username": {
 						"type": "string",
 						"description": "유저 아이디"
+					}
+				}
+			},
+			"api-v1-diary-diaryId-949572338": {
+				"type": "object",
+				"properties": {
+					"scope": {
+						"type": "string",
+						"description": "일기 공개 범위"
+					},
+					"content": {
+						"type": "string",
+						"description": "수정할 일기 콘텐츠"
 					}
 				}
 			},
@@ -956,15 +995,19 @@
 					}
 				}
 			},
-			"api-v1-diary-diaryId-scope928292131": {
+			"api-v1-auth-login638935618": {
 				"type": "object",
 				"properties": {
 					"data": {
 						"type": "object",
 						"properties": {
-							"id": {
-								"type": "number",
-								"description": "수정돤 일기 ID"
+							"accessToken": {
+								"type": "string",
+								"description": "인증 토큰"
+							},
+							"refreshToken": {
+								"type": "string",
+								"description": "재발급 토큰"
 							}
 						},
 						"description": "응답 데이터"
@@ -979,19 +1022,15 @@
 					}
 				}
 			},
-			"api-v1-auth-login638935618": {
+			"api-v1-diary-diaryId928292131": {
 				"type": "object",
 				"properties": {
 					"data": {
 						"type": "object",
 						"properties": {
-							"accessToken": {
-								"type": "string",
-								"description": "인증 토큰"
-							},
-							"refreshToken": {
-								"type": "string",
-								"description": "재발급 토큰"
+							"id": {
+								"type": "number",
+								"description": "수정돤 일기 ID"
 							}
 						},
 						"description": "응답 데이터"
@@ -1075,41 +1114,6 @@
 					"content": {
 						"type": "string",
 						"description": "일기 콘텐츠"
-					}
-				}
-			},
-			"api-v1-diary-diaryId-1741396817": {
-				"type": "object",
-				"properties": {
-					"data": {
-						"type": "object",
-						"properties": {
-							"createdAt": {
-								"type": "string",
-								"description": "생성 시간"
-							},
-							"targetDate": {
-								"type": "string",
-								"description": "대상 날짜"
-							},
-							"scope": {
-								"type": "string",
-								"description": "일기 공개 범위"
-							},
-							"content": {
-								"type": "string",
-								"description": "일기 내용"
-							}
-						},
-						"description": "응답 데이터"
-					},
-					"timestamp": {
-						"type": "string",
-						"description": "응답 시간"
-					},
-					"status": {
-						"type": "string",
-						"description": "응답 상태"
 					}
 				}
 			},
