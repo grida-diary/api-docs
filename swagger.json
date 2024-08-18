@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-08-03 02:44:49",
+		"description": "last updated : 2024-08-18 12:35:29",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -60,7 +60,7 @@
 								},
 								"examples": {
 									"append-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:30\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 21:35:10\"}"
 									}
 								}
 							}
@@ -69,78 +69,36 @@
 				}
 			}
 		},
-		"/api/v1/user": {
-			"post": {
-				"tags": [
-					"user"
-				],
-				"summary": "회원가입 API",
-				"operationId": "sign-in",
-				"requestBody": {
-					"content": {
-						"application/json;charset=utf-8": {
-							"schema": {
-								"$ref": "#/components/schemas/api-v1-user-1378917591"
-							},
-							"examples": {
-								"sign-in": {
-									"value": "{\"username\":\"username\",\"password\":\"raw password\",\"passwordConfirm\":\"raw password\",\"nickname\":\"nickname\"}"
-								}
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "200",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/api-v1-user1687252753"
-								},
-								"examples": {
-									"sign-in": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:33\"}"
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/api/v1/auth/login": {
-			"post": {
+		"/api/v1/auth/kakao": {
+			"get": {
 				"tags": [
 					"auth"
 				],
-				"summary": "로그인 API",
-				"operationId": "login",
-				"requestBody": {
-					"content": {
-						"application/json;charset=utf-8": {
-							"schema": {
-								"$ref": "#/components/schemas/api-v1-auth-login-1089546234"
-							},
-							"examples": {
-								"login": {
-									"value": "{\"username\":\"username\",\"password\":\"password\"}"
-								}
-							}
+				"summary": "카카오 로그인 API",
+				"description": "** local : https://kauth.kakao.com/oauth/authorize?client_id=e32f0cc35368a69966b54698b193a794&\nredirect_uri=http://localhost:8080/api/v1/auth/login/kakao&response_type=code <br/>\n** live : https://kauth.kakao.com/oauth/authorize?client_id=e32f0cc35368a69966b54698b193a794&\nredirect_uri=https://grida.today/api/v1/auth/login/kakao&response_type=code<br/>",
+				"operationId": "kakao-login",
+				"parameters": [
+					{
+						"name": "code",
+						"in": "query",
+						"description": "카카오 인증 토큰",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
-				},
+				],
 				"responses": {
 					"200": {
 						"description": "200",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-auth-login638935618"
+									"$ref": "#/components/schemas/api-v1-auth-kakao638935618"
 								},
 								"examples": {
-									"login": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-08-03 11:44:29\"}"
+									"kakao-login": {
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"accessToken\",\"refreshToken\":\"refreshToken\"},\"timestamp\":\"2024-08-18 21:35:08\"}"
 									}
 								}
 							}
@@ -177,7 +135,7 @@
 								},
 								"examples": {
 									"read-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"content\":\"일기 내용\",\"targetDate\":\"2024-02-22\",\"scope\":\"PUBLIC\",\"createdAt\":\"2024-08-03 02:44:30\",\"remainAttempt\":2},\"timestamp\":\"2024-08-03 11:44:30\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"content\":\"일기 내용\",\"targetDate\":\"2024-02-22\",\"scope\":\"PUBLIC\",\"createdAt\":\"2024-08-18 12:35:10\",\"remainAttempt\":2},\"timestamp\":\"2024-08-18 21:35:10\"}"
 									}
 								}
 							}
@@ -232,11 +190,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId928292131"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId-scope928292131"
 								},
 								"examples": {
 									"modify-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:31\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 21:35:10\"}"
 									}
 								}
 							}
@@ -274,7 +232,7 @@
 								},
 								"examples": {
 									"activate-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-03 02:44:32\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-08-03 11:44:32\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-18 12:35:11\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-08-18 21:35:11\"}"
 									}
 								}
 							}
@@ -324,7 +282,7 @@
 								},
 								"examples": {
 									"generate-sample-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:32\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 21:35:11\"}"
 									}
 								}
 							}
@@ -371,7 +329,7 @@
 								},
 								"examples": {
 									"generate-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:31\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 21:35:10\"}"
 									}
 								}
 							}
@@ -428,11 +386,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId928292131"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId-scope928292131"
 								},
 								"examples": {
 									"modify-diary-scope": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:30\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 21:35:10\"}"
 									}
 								}
 							}
@@ -470,7 +428,7 @@
 								},
 								"examples": {
 									"profile-image-exists": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"result\":true},\"timestamp\":\"2024-08-03 11:44:32\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"result\":true},\"timestamp\":\"2024-08-18 21:35:11\"}"
 									}
 								}
 							}
@@ -508,7 +466,7 @@
 								},
 								"examples": {
 									"profile-image-history": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"count\":2,\"profileImages\":[{\"imageId\":1,\"imageUrl\":\"https://imageUrl1.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-03 02:44:32\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style1\",\"glasses\":\"glasses1\",\"bodyShape\":\"body shape1\"},{\"imageId\":2,\"imageUrl\":\"https://imageUrl2.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-03 02:44:32\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style2\",\"glasses\":\"glasses2\",\"bodyShape\":\"body shape2\"}]},\"timestamp\":\"2024-08-03 11:44:32\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"count\":2,\"profileImages\":[{\"imageId\":1,\"imageUrl\":\"https://imageUrl1.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-18 12:35:11\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style1\",\"glasses\":\"glasses1\",\"bodyShape\":\"body shape1\"},{\"imageId\":2,\"imageUrl\":\"https://imageUrl2.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-18 12:35:11\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style2\",\"glasses\":\"glasses2\",\"bodyShape\":\"body shape2\"}]},\"timestamp\":\"2024-08-18 21:35:11\"}"
 									}
 								}
 							}
@@ -560,11 +518,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId-image-diaryImageId-956876200"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId-image-diaryImageId-change-956876200"
 								},
 								"examples": {
 									"apply-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:31\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 21:35:10\"}"
 									}
 								}
 							}
@@ -611,7 +569,7 @@
 								},
 								"examples": {
 									"apply-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:32\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 21:35:11\"}"
 									}
 								}
 							}
@@ -658,7 +616,7 @@
 								},
 								"examples": {
 									"change-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:32\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 21:35:11\"}"
 									}
 								}
 							}
@@ -710,11 +668,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId-image-diaryImageId-956876200"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId-image-diaryImageId-change-956876200"
 								},
 								"examples": {
 									"change-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-03 11:44:31\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 21:35:10\"}"
 									}
 								}
 							}
@@ -726,29 +684,6 @@
 	},
 	"components": {
 		"schemas": {
-			"api-v1-user1687252753": {
-				"type": "object",
-				"properties": {
-					"data": {
-						"type": "object",
-						"properties": {
-							"id": {
-								"type": "number",
-								"description": "생성된 사용자 ID"
-							}
-						},
-						"description": "응답 데이터"
-					},
-					"timestamp": {
-						"type": "string",
-						"description": "응답 시간"
-					},
-					"status": {
-						"type": "string",
-						"description": "응답 상태"
-					}
-				}
-			},
 			"api-v1-user-image1284210184": {
 				"type": "object",
 				"properties": {
@@ -834,27 +769,6 @@
 					}
 				}
 			},
-			"api-v1-user-1378917591": {
-				"type": "object",
-				"properties": {
-					"password": {
-						"type": "string",
-						"description": "유저 비밀번호"
-					},
-					"passwordConfirm": {
-						"type": "string",
-						"description": "비밀번호 확인"
-					},
-					"nickname": {
-						"type": "string",
-						"description": "유저 닉네임"
-					},
-					"username": {
-						"type": "string",
-						"description": "유저 아이디"
-					}
-				}
-			},
 			"api-v1-user-image-1887358041": {
 				"type": "object",
 				"properties": {
@@ -903,19 +817,6 @@
 					}
 				}
 			},
-			"api-v1-auth-login-1089546234": {
-				"type": "object",
-				"properties": {
-					"password": {
-						"type": "string",
-						"description": "유저 비밀번호"
-					},
-					"username": {
-						"type": "string",
-						"description": "유저 아이디"
-					}
-				}
-			},
 			"api-v1-diary-diaryId-949572338": {
 				"type": "object",
 				"properties": {
@@ -926,29 +827,6 @@
 					"content": {
 						"type": "string",
 						"description": "수정할 일기 콘텐츠"
-					}
-				}
-			},
-			"api-v1-user-image-apply-profileImageId-1691543836": {
-				"type": "object",
-				"properties": {
-					"data": {
-						"type": "object",
-						"properties": {
-							"id": {
-								"type": "number",
-								"description": "적용된 유저의 id"
-							}
-						},
-						"description": "응답 데이터"
-					},
-					"timestamp": {
-						"type": "string",
-						"description": "응답 시간"
-					},
-					"status": {
-						"type": "string",
-						"description": "응답 상태"
 					}
 				}
 			},
@@ -1019,6 +897,29 @@
 					}
 				}
 			},
+			"api-v1-user-image-apply-profileImageId-1691543836": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "number",
+								"description": "적용된 유저의 id"
+							}
+						},
+						"description": "응답 데이터"
+					},
+					"timestamp": {
+						"type": "string",
+						"description": "응답 시간"
+					},
+					"status": {
+						"type": "string",
+						"description": "응답 상태"
+					}
+				}
+			},
 			"api-v1-diary-diaryId-scope1821410875": {
 				"type": "object",
 				"properties": {
@@ -1028,7 +929,7 @@
 					}
 				}
 			},
-			"api-v1-diary-diaryId-image-diaryImageId-956876200": {
+			"api-v1-diary-diaryId-image-diaryImageId-change-956876200": {
 				"type": "object",
 				"properties": {
 					"data": {
@@ -1051,19 +952,15 @@
 					}
 				}
 			},
-			"api-v1-auth-login638935618": {
+			"api-v1-diary-diaryId-scope928292131": {
 				"type": "object",
 				"properties": {
 					"data": {
 						"type": "object",
 						"properties": {
-							"accessToken": {
-								"type": "string",
-								"description": "인증 토큰"
-							},
-							"refreshToken": {
-								"type": "string",
-								"description": "재발급 토큰"
+							"id": {
+								"type": "number",
+								"description": "수정돤 일기 ID"
 							}
 						},
 						"description": "응답 데이터"
@@ -1078,15 +975,19 @@
 					}
 				}
 			},
-			"api-v1-diary-diaryId928292131": {
+			"api-v1-auth-kakao638935618": {
 				"type": "object",
 				"properties": {
 					"data": {
 						"type": "object",
 						"properties": {
-							"id": {
-								"type": "number",
-								"description": "수정돤 일기 ID"
+							"accessToken": {
+								"type": "string",
+								"description": "인증 토큰"
+							},
+							"refreshToken": {
+								"type": "string",
+								"description": "재발급 토큰"
 							}
 						},
 						"description": "응답 데이터"
