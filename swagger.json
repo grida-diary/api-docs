@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-08-18 13:13:57",
+		"description": "last updated : 2024-08-28 05:36:41",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -17,6 +17,53 @@
 	],
 	"tags": [],
 	"paths": {
+		"/api/v1/auth": {
+			"get": {
+				"tags": [
+					"auth"
+				],
+				"summary": "인증 토큰 발급 API",
+				"description": "kakao <br/>** local : https://kauth.kakao.com/oauth/authorize?client_id=e32f0cc35368a69966b54698b193a794&redirect_uri=http://localhost:8080/api/v1/auth/login/kakao&response_type=code <br/>** live : https://kauth.kakao.com/oauth/authorize?client_id=e32f0cc35368a69966b54698b193a794&redirect_uri=https://grida.today/api/v1/auth/login/kakao&response_type=code<br/>",
+				"operationId": "provide-auth-token",
+				"parameters": [
+					{
+						"name": "platform",
+						"in": "query",
+						"description": "oauth2 플랫폼 [kakao/**]",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "code",
+						"in": "query",
+						"description": "인증 토큰",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "200",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/api-v1-auth638935618"
+								},
+								"examples": {
+									"provide-auth-token": {
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-08-28 14:36:20\"}"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/api/v1/diary": {
 			"post": {
 				"tags": [
@@ -60,45 +107,7 @@
 								},
 								"examples": {
 									"append-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 22:13:38\"}"
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/api/v1/auth/kakao": {
-			"get": {
-				"tags": [
-					"auth"
-				],
-				"summary": "카카오 로그인 API",
-				"description": "** local : https://kauth.kakao.com/oauth/authorize?client_id=e32f0cc35368a69966b54698b193a794&redirect_uri=http://localhost:8080/api/v1/auth/login/kakao&response_type=code <br/>** live : https://kauth.kakao.com/oauth/authorize?client_id=e32f0cc35368a69966b54698b193a794&redirect_uri=https://grida.today/api/v1/auth/login/kakao&response_type=code<br/>",
-				"operationId": "kakao-login",
-				"parameters": [
-					{
-						"name": "code",
-						"in": "query",
-						"description": "카카오 인증 토큰",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "200",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/api-v1-auth-kakao638935618"
-								},
-								"examples": {
-									"kakao-login": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"accessToken\",\"refreshToken\":\"refreshToken\"},\"timestamp\":\"2024-08-18 22:13:36\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:21\"}"
 									}
 								}
 							}
@@ -135,7 +144,7 @@
 								},
 								"examples": {
 									"read-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"content\":\"일기 내용\",\"targetDate\":\"2024-02-22\",\"scope\":\"PUBLIC\",\"createdAt\":\"2024-08-18 13:13:38\",\"remainAttempt\":2},\"timestamp\":\"2024-08-18 22:13:38\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"content\":\"일기 내용\",\"targetDate\":\"2024-02-22\",\"scope\":\"PUBLIC\",\"createdAt\":\"2024-08-28 05:36:21\",\"remainAttempt\":2},\"timestamp\":\"2024-08-28 14:36:21\"}"
 									}
 								}
 							}
@@ -190,11 +199,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId-scope928292131"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId928292131"
 								},
 								"examples": {
 									"modify-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 22:13:38\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:22\"}"
 									}
 								}
 							}
@@ -232,7 +241,7 @@
 								},
 								"examples": {
 									"activate-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-18 13:13:40\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-08-18 22:13:40\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-28 05:36:23\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-08-28 14:36:23\"}"
 									}
 								}
 							}
@@ -282,7 +291,7 @@
 								},
 								"examples": {
 									"generate-sample-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 22:13:40\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:23\"}"
 									}
 								}
 							}
@@ -329,7 +338,7 @@
 								},
 								"examples": {
 									"generate-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 22:13:39\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:22\"}"
 									}
 								}
 							}
@@ -386,11 +395,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId-scope928292131"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId928292131"
 								},
 								"examples": {
 									"modify-diary-scope": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 22:13:38\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:21\"}"
 									}
 								}
 							}
@@ -428,7 +437,7 @@
 								},
 								"examples": {
 									"profile-image-exists": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"result\":true},\"timestamp\":\"2024-08-18 22:13:39\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"result\":true},\"timestamp\":\"2024-08-28 14:36:23\"}"
 									}
 								}
 							}
@@ -466,7 +475,7 @@
 								},
 								"examples": {
 									"profile-image-history": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"count\":2,\"profileImages\":[{\"imageId\":1,\"imageUrl\":\"https://imageUrl1.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-18 13:13:39\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style1\",\"glasses\":\"glasses1\",\"bodyShape\":\"body shape1\"},{\"imageId\":2,\"imageUrl\":\"https://imageUrl2.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-18 13:13:39\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style2\",\"glasses\":\"glasses2\",\"bodyShape\":\"body shape2\"}]},\"timestamp\":\"2024-08-18 22:13:40\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"count\":2,\"profileImages\":[{\"imageId\":1,\"imageUrl\":\"https://imageUrl1.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-28 05:36:23\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style1\",\"glasses\":\"glasses1\",\"bodyShape\":\"body shape1\"},{\"imageId\":2,\"imageUrl\":\"https://imageUrl2.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-28 05:36:23\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style2\",\"glasses\":\"glasses2\",\"bodyShape\":\"body shape2\"}]},\"timestamp\":\"2024-08-28 14:36:23\"}"
 									}
 								}
 							}
@@ -518,11 +527,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId-image-diaryImageId-956876200"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId-image-diaryImageId-change-956876200"
 								},
 								"examples": {
 									"apply-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 22:13:39\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:22\"}"
 									}
 								}
 							}
@@ -569,7 +578,7 @@
 								},
 								"examples": {
 									"apply-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 22:13:40\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:23\"}"
 									}
 								}
 							}
@@ -616,7 +625,7 @@
 								},
 								"examples": {
 									"change-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 22:13:40\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:23\"}"
 									}
 								}
 							}
@@ -668,11 +677,11 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/api-v1-diary-diaryId-image-diaryImageId-956876200"
+									"$ref": "#/components/schemas/api-v1-diary-diaryId-image-diaryImageId-change-956876200"
 								},
 								"examples": {
 									"change-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-18 22:13:39\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:22\"}"
 									}
 								}
 							}
@@ -929,7 +938,7 @@
 					}
 				}
 			},
-			"api-v1-diary-diaryId-image-diaryImageId-956876200": {
+			"api-v1-diary-diaryId-image-diaryImageId-change-956876200": {
 				"type": "object",
 				"properties": {
 					"data": {
@@ -952,15 +961,19 @@
 					}
 				}
 			},
-			"api-v1-diary-diaryId-scope928292131": {
+			"api-v1-auth638935618": {
 				"type": "object",
 				"properties": {
 					"data": {
 						"type": "object",
 						"properties": {
-							"id": {
-								"type": "number",
-								"description": "수정돤 일기 ID"
+							"accessToken": {
+								"type": "string",
+								"description": "인증 토큰"
+							},
+							"refreshToken": {
+								"type": "string",
+								"description": "재발급 토큰"
 							}
 						},
 						"description": "응답 데이터"
@@ -975,19 +988,15 @@
 					}
 				}
 			},
-			"api-v1-auth-kakao638935618": {
+			"api-v1-diary-diaryId928292131": {
 				"type": "object",
 				"properties": {
 					"data": {
 						"type": "object",
 						"properties": {
-							"accessToken": {
-								"type": "string",
-								"description": "인증 토큰"
-							},
-							"refreshToken": {
-								"type": "string",
-								"description": "재발급 토큰"
+							"id": {
+								"type": "number",
+								"description": "수정돤 일기 ID"
 							}
 						},
 						"description": "응답 데이터"
