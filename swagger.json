@@ -2,7 +2,7 @@
 	"openapi": "3.0.1",
 	"info": {
 		"title": "Grida Core API",
-		"description": "last updated : 2024-08-28 05:36:41",
+		"description": "last updated : 2024-08-30 07:28:02",
 		"version": "1.0.0-SNAPSHOT"
 	},
 	"servers": [
@@ -18,7 +18,7 @@
 	"tags": [],
 	"paths": {
 		"/api/v1/auth": {
-			"get": {
+			"post": {
 				"tags": [
 					"auth"
 				],
@@ -34,17 +34,22 @@
 						"schema": {
 							"type": "string"
 						}
-					},
-					{
-						"name": "code",
-						"in": "query",
-						"description": "인증 토큰",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
 					}
 				],
+				"requestBody": {
+					"content": {
+						"application/json;charset=utf-8": {
+							"schema": {
+								"$ref": "#/components/schemas/api-v1-auth-1576953319"
+							},
+							"examples": {
+								"provide-auth-token": {
+									"value": "{\"code\":\"code\",\"state\":\"state\"}"
+								}
+							}
+						}
+					}
+				},
 				"responses": {
 					"200": {
 						"description": "200",
@@ -55,7 +60,7 @@
 								},
 								"examples": {
 									"provide-auth-token": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-08-28 14:36:20\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"accessToken\":\"access token\",\"refreshToken\":\"refresh token\"},\"timestamp\":\"2024-08-30 16:27:43\"}"
 									}
 								}
 							}
@@ -107,7 +112,7 @@
 								},
 								"examples": {
 									"append-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:21\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-30 16:27:44\"}"
 									}
 								}
 							}
@@ -144,7 +149,7 @@
 								},
 								"examples": {
 									"read-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"content\":\"일기 내용\",\"targetDate\":\"2024-02-22\",\"scope\":\"PUBLIC\",\"createdAt\":\"2024-08-28 05:36:21\",\"remainAttempt\":2},\"timestamp\":\"2024-08-28 14:36:21\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"content\":\"일기 내용\",\"targetDate\":\"2024-02-22\",\"scope\":\"PUBLIC\",\"createdAt\":\"2024-08-30 07:27:44\",\"remainAttempt\":2},\"timestamp\":\"2024-08-30 16:27:44\"}"
 									}
 								}
 							}
@@ -203,7 +208,7 @@
 								},
 								"examples": {
 									"modify-diary": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:22\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-30 16:27:44\"}"
 									}
 								}
 							}
@@ -241,7 +246,7 @@
 								},
 								"examples": {
 									"activate-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-28 05:36:23\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-08-28 14:36:23\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"imageId\":1,\"imageUrl\":\"https://imageUrl.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-30 07:27:46\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style\",\"glasses\":\"glasses\",\"bodyShape\":\"body shape\"},\"timestamp\":\"2024-08-30 16:27:46\"}"
 									}
 								}
 							}
@@ -291,7 +296,7 @@
 								},
 								"examples": {
 									"generate-sample-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:23\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-30 16:27:46\"}"
 									}
 								}
 							}
@@ -338,7 +343,7 @@
 								},
 								"examples": {
 									"generate-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:22\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-30 16:27:45\"}"
 									}
 								}
 							}
@@ -399,7 +404,7 @@
 								},
 								"examples": {
 									"modify-diary-scope": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:21\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-30 16:27:44\"}"
 									}
 								}
 							}
@@ -437,7 +442,7 @@
 								},
 								"examples": {
 									"profile-image-exists": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"result\":true},\"timestamp\":\"2024-08-28 14:36:23\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"result\":true},\"timestamp\":\"2024-08-30 16:27:45\"}"
 									}
 								}
 							}
@@ -475,7 +480,7 @@
 								},
 								"examples": {
 									"profile-image-history": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"count\":2,\"profileImages\":[{\"imageId\":1,\"imageUrl\":\"https://imageUrl1.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-28 05:36:23\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style1\",\"glasses\":\"glasses1\",\"bodyShape\":\"body shape1\"},{\"imageId\":2,\"imageUrl\":\"https://imageUrl2.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-28 05:36:23\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style2\",\"glasses\":\"glasses2\",\"bodyShape\":\"body shape2\"}]},\"timestamp\":\"2024-08-28 14:36:23\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"count\":2,\"profileImages\":[{\"imageId\":1,\"imageUrl\":\"https://imageUrl1.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-30 07:27:45\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style1\",\"glasses\":\"glasses1\",\"bodyShape\":\"body shape1\"},{\"imageId\":2,\"imageUrl\":\"https://imageUrl2.com\",\"status\":\"ACTIVATE\",\"createdAt\":\"2024-08-30 07:27:45\",\"gender\":\"MAN\",\"age\":21,\"hairStyle\":\"hair style2\",\"glasses\":\"glasses2\",\"bodyShape\":\"body shape2\"}]},\"timestamp\":\"2024-08-30 16:27:46\"}"
 									}
 								}
 							}
@@ -531,7 +536,7 @@
 								},
 								"examples": {
 									"apply-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:22\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-30 16:27:45\"}"
 									}
 								}
 							}
@@ -578,7 +583,7 @@
 								},
 								"examples": {
 									"apply-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:23\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-30 16:27:46\"}"
 									}
 								}
 							}
@@ -625,7 +630,7 @@
 								},
 								"examples": {
 									"change-profile-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:23\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-30 16:27:46\"}"
 									}
 								}
 							}
@@ -681,7 +686,7 @@
 								},
 								"examples": {
 									"change-diary-image": {
-										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-28 14:36:22\"}"
+										"value": "{\"status\":\"SUCCESS\",\"data\":{\"id\":1},\"timestamp\":\"2024-08-30 16:27:45\"}"
 									}
 								}
 							}
@@ -1008,6 +1013,19 @@
 					"status": {
 						"type": "string",
 						"description": "응답 상태"
+					}
+				}
+			},
+			"api-v1-auth-1576953319": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "oauth2 플랫폼 인증 토큰"
+					},
+					"state": {
+						"type": "string",
+						"description": "상태값 (kakao : redirect uri)"
 					}
 				}
 			},
